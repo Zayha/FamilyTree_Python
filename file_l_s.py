@@ -4,11 +4,17 @@ import pickle
 class Ser_file:
 
     def save_file(self, obj, path):
-        serializable_object = pickle.dumps(obj)
+        try:
+            serializable_object = pickle.dumps(obj)
+            file_name = f"{path}.pkl"
+            with open(file_name, 'wb') as file:
+                pickle.dump(serializable_object, file)
+            return True
+        except Exception as ex:
+            print(ex)
+            return False
 
-        file_name = f"{path}.pkl"
-        with open(file_name, 'wb') as file:
-            pickle.dump(serializable_object, file)
+
 
     def load_file(self, path):
         file_name = f"{path}.pkl"
