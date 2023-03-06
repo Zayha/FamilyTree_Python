@@ -32,13 +32,13 @@ class Human:
 
         self.partner = kwargs.get("partner")
         if v1.check_gender(kwargs.get("gender")):
-            self.gender = kwargs.get("gender")
+            self.__gender = kwargs.get("gender")
         else:
-            self.gender = "0"
+            self.__gender = "0"
         self.place_of_b = kwargs.get("place_of_b")
 
     def __str__(self):
-        return f"ID: {self.id_num}, {self.first_name} " \
+        return f"ID: {self.id_num}, {self.get_gender()}, {self.first_name} " \
                f"{self.patronymic} {self.last_name} ({self.b_date} - " \
                f"{self.__d_date}), {self.place_of_b}"
 
@@ -79,9 +79,14 @@ class Human:
             else:
                 return False
 
-    # def dump(self, path, f="load"):
-    #     sf = Ser_file()
-    #     if f == "load":
-    #         sf.load_file(path)
-    #     if f == "save":
-    #         sf.save_file(self, path)
+    def get_gender(self):
+        return self.__gender
+
+    def set_father(self, human):
+        self.father = human
+
+    def set_mother(self, human):
+        self.mother = human
+
+    def get_children(self):
+        return self.children

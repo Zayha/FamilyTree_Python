@@ -34,6 +34,10 @@ class Service:
         parent: Human = self.get_unit_by_id(parent_id)
         if child not in parent.children:
             parent.add_child(child)
+            if parent.get_gender() == "M":
+                child.set_father(parent)
+            if parent.get_gender() == "F":
+                child.set_mother(parent)
             return True
         return False
 
@@ -48,3 +52,10 @@ class Service:
         else:
             return False
 
+    def show_tree(self, root_id, indent=0):
+        root: Human = self.get_unit_by_id(root_id)
+        tree_str = " " * indent + f"{'└─── ' if indent > 0 else ''}" + str(root) + "\n"
+        if len(root.children) > 0:
+            for child in root.children:
+                tree_str += self.show_tree(str(child.id_num), indent + 5)
+        return tree_str

@@ -89,7 +89,7 @@ class ShowAll(Options):
         return "Список всех персон"
 
     def execute(self):
-        self.console.show_all()
+        self.get_console().show_all()
 
 
 class ShowTree(Options):
@@ -97,7 +97,7 @@ class ShowTree(Options):
         return "Показать дерево"
 
     def execute(self):
-        pass
+        self.get_console().show_tree()
 
 
 class AddPartner(Options):

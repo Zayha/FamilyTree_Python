@@ -21,3 +21,6 @@ class Presenter:
     def load_tree(self, path):
         return self.service.load_tree(path)
 
+    def show_tree(self, id_root):
+        return self.service.show_tree(id_root)
+

@@ -57,5 +57,8 @@ class Console(View):
             print(f"Файл {file}.pkl загружен!")
         else:
             print(f"Файл {file}.pkl не был загружен!")
+
+    def show_tree(self):
+        print(self.presenter.show_tree(input("Укажите id от которого хотите выстроить дерево: ")))
             
             
