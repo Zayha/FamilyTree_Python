@@ -5,8 +5,8 @@ class FamilyTree:
         if "family" in kwargs:
             self.family = kwargs.get("family")
 
-    def __str__(self):
-        return f"В составе дерева {len(self.family)} персон(а)"
+    # def __str__(self):
+    #     return f"В составе дерева {len(self.family)} персон(а)"
 
     def __iter__(self):
         self.index = 0

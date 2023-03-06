@@ -30,3 +30,10 @@ class Presenter:
     def del_human(self, id_human):
         return self.service.del_human(id_human)
 
+    def add_partner(self, partner1, partner2):
+        return self.service.add_partner(partner1, partner2)
+
+    def sort_by_birth_date(self):
+        self.service.sort_by_birth_date()
+        return self.service.show_all()
+

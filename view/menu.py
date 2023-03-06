@@ -1,5 +1,5 @@
 from view.options import Exit, AddHuman, LoadTree, SaveTree, EditHuman, DellHuman, AddChild, InfoHuman, ShowAll, \
-    ShowTree, AddPartner, FindHuman
+    ShowTree, AddPartner, FindHuman, SortingTree
 
 
 class Menu:
@@ -16,7 +16,8 @@ class Menu:
                          EditHuman(console),
                          FindHuman(console),
                          DellHuman(console),
-                         Exit(console)
+                         Exit(console),
+                         SortingTree(console)
                          ]
 
     def print_menu(self):

@@ -1,4 +1,5 @@
-from dates import get_age
+import datetime
+
 from file_l_s import Ser_file
 from models.FamilyTree import FamilyTree
 from models.Human import Human
@@ -75,6 +76,10 @@ class Service:
                 result += f"Возраст {human.get_age()} лет" + "\n"
             else:
                 result += f"Прожил {human.get_age()} лет" + "\n"
+            if human.partner is None:
+                result += "Информация по супругу/супруге отсутствует\n"
+            else:
+                result += "Супруг/супруга:\n" + human.partner
             if len(human.children) > 0:
                 result += f'Имеет: {len(human.children)} детей/ребенка'
                 counter = 0
@@ -105,5 +110,15 @@ class Service:
         else:
             return False
 
+    def add_partner(self, id_partner1, id_partner2):
+        if self.check_id_in_family(id_partner1) and self.check_id_in_family(id_partner2):
+            partner1: Human = self.get_unit_by_id(id_partner1)
+            partner2: Human = self.get_unit_by_id(id_partner2)
+            partner1.set_partner(partner2)
+            partner2.set_partner(partner1)
+            return True
+        else:
+            return False
 
-
+    def sort_by_birth_date(self):
+        self.family_tree = sorted(self.family_tree, key=lambda x: datetime.datetime.strptime(x.b_date, '%d.%m.%Y'))

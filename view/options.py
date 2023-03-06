@@ -105,7 +105,7 @@ class AddPartner(Options):
         return "Добавить супруга"
 
     def execute(self):
-        pass
+        self.get_console().add_partner()
 
 
 class FindHuman(Options):
@@ -114,3 +114,11 @@ class FindHuman(Options):
 
     def execute(self):
         pass
+
+
+class SortingTree(Options):
+    def description(self):
+        return "Сортировка дерева по году рождения"
+
+    def execute(self):
+        self.get_console().sort_by_birth_date()

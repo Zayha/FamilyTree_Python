@@ -96,3 +96,6 @@ class Human:
 
     def get_d_date(self):
         return self.__d_date
+
+    def set_partner(self, partner):
+        self.partner = partner

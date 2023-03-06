@@ -70,3 +70,13 @@ class Console(View):
             print(f"ID: {del_id} успешно удален!")
         else:
             print(f"ID: {del_id} не был удален!")
+
+    def add_partner(self):
+        if self.presenter.add_partner(input("Укажите ID супруга 1 для присоединения к супругу 2: "),
+                                      input("Укажите ID супруга 2 для присоединения к супругу 1: ")):
+            print("Информация добавлена!")
+        else:
+            print("Информация не была добавлена!")
+
+    def sort_by_birth_date(self):
+        print(self.presenter.sort_by_birth_date())
