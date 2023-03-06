@@ -33,7 +33,7 @@ class AddHuman(Options):
         return "Добавить человека"
 
     def execute(self):
-        pass
+        self.get_console().add_human()
 
 
 class LoadTree(Options):
@@ -41,7 +41,7 @@ class LoadTree(Options):
         return "Загрузить файл"
 
     def execute(self):
-        pass
+        self.get_console().load_tree()
 
 
 class SaveTree(Options):
@@ -49,7 +49,7 @@ class SaveTree(Options):
         return "Сохранить файл"
 
     def execute(self):
-        pass
+        self.get_console().save_tree()
 
 
 class EditHuman(Options):
@@ -73,7 +73,7 @@ class AddChild(Options):
         return "Добавить ребенка"
 
     def execute(self):
-        pass
+        self.get_console().add_child()
 
 
 class InfoHuman(Options):
@@ -89,7 +89,7 @@ class ShowAll(Options):
         return "Список всех персон"
 
     def execute(self):
-        pass
+        self.console.show_all()
 
 
 class ShowTree(Options):
@@ -106,3 +106,11 @@ class AddPartner(Options):
 
     def execute(self):
         pass
+
+
+class FindHuman(Options):
+    def description(self):
+        return "Найти человека"
+
+    def execute(self):
+        self.get_console().add_child()

@@ -13,8 +13,8 @@ class ConsoleForm:
         lst_key = [
             "gender",
             "first_name",
-            "",
-            "",
+            "patronymic",
+            "last_name",
             "b_date",
             "d_date",
             "place_of_b"

@@ -14,30 +14,38 @@ from view.menu import Menu
 def main():
     # h1 = Human(gender="М", first_name="Ivan", patronymic="Vasil`evich", last_name="Tritonov", b_date="10.10.1956",
     #            place_of_b="Москва")
+    # print(h1.id_num)
+    # print(type(h1.id_num))
     # h2 = Human(gender="М", first_name="Vasiliy", patronymic="Fedorovich", last_name="Tritonov", b_date="10.12.1920")
-
-    h2 = Human()
-    s = Ser_file()
-    h2 = s.load_file("h2")
+    #
+    #
+    # s = Ser_file()
+    # # h2 = s.load_file("h2")
     # h2.add_child(h1)
+    #
+    # print(h2.set_date_of_d("31.12.1990"))
+    # print(h2.get_age())
+    #
+    # print(h2)
+    # for i in h2.children:
+    #     print("  --  ", i)
+    #
 
-    print(h2.set_date_of_d("31.12.1990"))
-    print(h2.get_age())
 
-    print(h2)
-    for i in h2.children:
-        print("  --  ", i)
+    p1 = Presenter()
+    c1 = Console(p1)
+    c1.start()
 
-    # p1 = Presenter()
-    # c1 = Console(p1)
-    # c1.start()
 
-    # c1 = ConsoleForm()
-    # # c1.console_human()
-    # h3 = Human(**c1.console_human())
-    t1 = FamilyTree()
-    t1.add_to_family(h2)
-    print(t1)
+
+    #
+    # # c1 = ConsoleForm()
+    # # # c1.console_human()
+    # # h3 = Human(**c1.console_human())
+    # t1 = FamilyTree()
+    # t1.add_to_family(h2)
+    # print(t1)
+    # t1.save_tree()
 
 
 if __name__ == "__main__":

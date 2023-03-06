@@ -79,9 +79,9 @@ class Human:
             else:
                 return False
 
-    def dump(self, path, f="load"):
-        sf = Ser_file()
-        if f == "load":
-            sf.load_file(path)
-        if f == "save":
-            sf.save_file(self, path)
+    # def dump(self, path, f="load"):
+    #     sf = Ser_file()
+    #     if f == "load":
+    #         sf.load_file(path)
+    #     if f == "save":
+    #         sf.save_file(self, path)

@@ -1,5 +1,5 @@
 from view.options import Exit, AddHuman, LoadTree, SaveTree, EditHuman, DellHuman, AddChild, InfoHuman, ShowAll, \
-    ShowTree, AddPartner
+    ShowTree, AddPartner, FindHuman
 
 
 class Menu:
@@ -14,6 +14,7 @@ class Menu:
                          LoadTree(console),
                          SaveTree(console),
                          EditHuman(console),
+                         FindHuman(console),
                          DellHuman(console),
                          Exit(console)
                          ]

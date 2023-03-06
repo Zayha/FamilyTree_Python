@@ -14,10 +14,11 @@ class Ser_file:
             print(ex)
             return False
 
-
-
     def load_file(self, path):
         file_name = f"{path}.pkl"
-        with open(file_name, 'rb') as file:
-            serialized_object = pickle.load(file)
-        return pickle.loads(serialized_object)
+        try:
+            with open(file_name, 'rb') as file:
+                serialized_object = pickle.load(file)
+            return pickle.loads(serialized_object)
+        except:
+            return None

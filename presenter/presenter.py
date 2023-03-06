@@ -1,2 +1,23 @@
+from service import Service
+
+
 class Presenter:
-    pass
+
+    def __init__(self):
+        self.service = Service()
+
+    def add_human(self, data):
+        self.service.add_human(data)
+
+    def show_all(self):
+        return self.service.show_all()
+
+    def add_child(self, child_id, parent_id):
+        return self.service.add_child(child_id, parent_id)
+
+    def save_tree(self, path):
+        return self.service.save_tree(path)
+
+    def load_tree(self, path):
+        return self.service.load_tree(path)
+
