@@ -5,9 +5,6 @@ class FamilyTree:
         if "family" in kwargs:
             self.family = kwargs.get("family")
 
-    # def __str__(self):
-    #     return f"В составе дерева {len(self.family)} персон(а)"
-
     def __iter__(self):
         self.index = 0
         return self
@@ -27,3 +24,6 @@ class FamilyTree:
 
     def del_from_family(self, human):
         self.family.remove(human)
+
+    def get_family(self):
+        return self.family

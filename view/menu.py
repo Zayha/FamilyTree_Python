@@ -13,7 +13,7 @@ class Menu:
                          ShowTree(console),
                          LoadTree(console),
                          SaveTree(console),
-                         EditHuman(console),
+                         # EditHuman(console),
                          FindHuman(console),
                          DellHuman(console),
                          Exit(console),
