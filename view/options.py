@@ -65,7 +65,7 @@ class DellHuman(Options):
         return "Удалить человека"
 
     def execute(self):
-        pass
+        return self.get_console().del_human()
 
 
 class AddChild(Options):
@@ -81,7 +81,7 @@ class InfoHuman(Options):
         return "Информация по человеку"
 
     def execute(self):
-        pass
+        self.get_console().human_info()
 
 
 class ShowAll(Options):
@@ -113,4 +113,4 @@ class FindHuman(Options):
         return "Найти человека"
 
     def execute(self):
-        self.get_console().add_child()
+        pass

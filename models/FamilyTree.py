@@ -24,3 +24,6 @@ class FamilyTree:
 
     def set_family(self, family):
         self.family = family
+
+    def del_from_family(self, human):
+        self.family.remove(human)

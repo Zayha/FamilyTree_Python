@@ -24,3 +24,9 @@ class Presenter:
     def show_tree(self, id_root):
         return self.service.show_tree(id_root)
 
+    def human_info(self, id_root):
+        return self.service.human_info(id_root)
+
+    def del_human(self, id_human):
+        return self.service.del_human(id_human)
+

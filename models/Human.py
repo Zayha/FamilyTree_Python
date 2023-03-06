@@ -2,7 +2,6 @@ import datetime
 import uuid
 from typing import List
 
-from file_l_s import Ser_file
 from validator import Validator
 
 
@@ -21,12 +20,16 @@ class Human:
         if v1.check_date(kwargs.get("d_date")):
             self.__d_date = kwargs.get("d_date")
         else:
-            self.__d_date = ""
+            self.__d_date = None
 
         if isinstance(kwargs.get("father"), Human):
             self.father = kwargs.get("father")
+        else:
+            self.father = None
         if isinstance(kwargs.get("mother"), Human):
             self.mother = kwargs.get("mother")
+        else:
+            self.mother = None
         if isinstance(kwargs.get("children"), List) and v1.check_type_in_list(kwargs.get("children"), Human):
             self.children = kwargs.get("children")
 
@@ -40,7 +43,7 @@ class Human:
     def __str__(self):
         return f"ID: {self.id_num}, {self.get_gender()}, {self.first_name} " \
                f"{self.patronymic} {self.last_name} ({self.b_date} - " \
-               f"{self.__d_date}), {self.place_of_b}"
+               f"{self.__d_date if self.__d_date is not None else 'по сей день'}), {self.place_of_b}"
 
     def __iter__(self):
         return iter(self.children)
@@ -90,3 +93,6 @@ class Human:
 
     def get_children(self):
         return self.children
+
+    def get_d_date(self):
+        return self.__d_date

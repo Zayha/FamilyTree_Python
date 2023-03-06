@@ -1,3 +1,4 @@
+from dates import get_age
 from file_l_s import Ser_file
 from models.FamilyTree import FamilyTree
 from models.Human import Human
@@ -59,3 +60,50 @@ class Service:
             for child in root.children:
                 tree_str += self.show_tree(str(child.id_num), indent + 5)
         return tree_str
+
+    def check_id_in_family(self, id_check):
+        for i in self.family_tree:
+            if str(i.id_num) == id_check:
+                return True
+        return False
+
+    def human_info(self, root_id):
+        if self.check_id_in_family(root_id):
+            human = self.get_unit_by_id(root_id)
+            result = f"{human}" + "\n"
+            if human.get_d_date() is None:
+                result += f"Возраст {human.get_age()} лет" + "\n"
+            else:
+                result += f"Прожил {human.get_age()} лет" + "\n"
+            if len(human.children) > 0:
+                result += f'Имеет: {len(human.children)} детей/ребенка'
+                counter = 0
+                for i in human.children:
+                    if i.children is not None:
+                        counter += len(i.children)
+                if counter > 0:
+                    result += "\n" + f"Имеет: {counter} внуков(а)"
+            else:
+                result += 'Детей нет'
+            if human.father is not None:
+                result += "\n" + f"Отец: {human.father}"
+            else:
+                result += "\n" + f"Отец: информация отсутствует"
+            if human.mother is not None:
+                result += "\n" + f"Мать: {human.mother}"
+            else:
+                result += "\n" + f"Мать: информация отсутствует"
+            return result
+        else:
+            return "Информация отсутствует!"
+
+    def del_human(self, id_human):
+        if self.check_id_in_family(id_human):
+            human = self.get_unit_by_id(id_human)
+            self.family_tree.del_from_family(human)
+            return True
+        else:
+            return False
+
+
+

@@ -60,5 +60,13 @@ class Console(View):
 
     def show_tree(self):
         print(self.presenter.show_tree(input("Укажите id от которого хотите выстроить дерево: ")))
-            
-            
+
+    def human_info(self):
+        print(self.presenter.human_info(input("Укажите id по которому хотите получить информацию: ")))
+
+    def del_human(self):
+        del_id = input("Укажите ID персоны которую хотите удалить: ")
+        if self.presenter.del_human(del_id):
+            print(f"ID: {del_id} успешно удален!")
+        else:
+            print(f"ID: {del_id} не был удален!")
