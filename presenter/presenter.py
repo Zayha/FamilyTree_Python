@@ -37,3 +37,5 @@ class Presenter:
         self.service.sort_by_birth_date()
         return self.service.show_all()
 
+    def find_human(self, data):
+        return self.service.find_human(data)

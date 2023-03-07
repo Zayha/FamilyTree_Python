@@ -113,7 +113,7 @@ class FindHuman(Options):
         return "Найти человека"
 
     def execute(self):
-        pass
+        self.get_console().find_human()
 
 
 class SortingTree(Options):

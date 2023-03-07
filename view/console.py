@@ -80,3 +80,6 @@ class Console(View):
 
     def sort_by_birth_date(self):
         print(self.presenter.sort_by_birth_date())
+
+    def find_human(self):
+        print(self.presenter.find_human(self.form.console_find()))

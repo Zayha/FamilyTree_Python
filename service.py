@@ -1,8 +1,10 @@
 import datetime
 
 from file_l_s import Ser_file
+from filter import Filter
 from models.FamilyTree import FamilyTree
 from models.Human import Human
+from validator import Validator
 
 
 class Service:
@@ -122,3 +124,25 @@ class Service:
 
     def sort_by_birth_date(self):
         self.family_tree = sorted(self.family_tree, key=lambda x: datetime.datetime.strptime(x.b_date, '%d.%m.%Y'))
+
+    def find_human(self, data: dict):
+        result = "Результаты поиска: \n"
+        val = Validator()
+        filter_family = Filter(self.family_tree)
+        if val.check_date(data.get("b_date_from")) or data.get("b_date_from") == "*":
+            if val.check_date(data.get("b_date_to")) or data.get("b_date_to") == "*":
+                if val.check_date(data.get("b_date_from")) or data.get("b_date_from") == "*":
+                    if val.check_date(data.get("b_date_to")) or data.get("b_date_to") == "*":
+                        filter_family.filter_date(data.get("b_date_from"), data.get("b_date_to"), "get_b_date")
+                        filter_family.filter_date(data.get("d_date_from"), data.get("d_date_to"), "get_d_date")
+                        filter_family.filter_str(data.get("gender"), "get_gender")
+                        filter_family.filter_str(data.get("first_name"), "get_first_name")
+                        filter_family.filter_str(data.get("patronymic"), "get_patronymic")
+                        filter_family.filter_str(data.get("last_name"), "get_last_name")
+                        filter_family.filter_str(data.get("place_of_b"), "get_place_of_b")
+
+        if len(filter_family.get_result()) > 0:
+            result += '\n'.join(filter_family.get_result())
+        else:
+            result += "\nНет результатов удовлетворящих критериям поиска!"
+        return result

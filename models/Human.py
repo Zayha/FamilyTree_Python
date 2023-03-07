@@ -97,5 +97,20 @@ class Human:
     def get_d_date(self):
         return self.__d_date
 
+    def get_b_date(self):
+        return self.b_date
+
     def set_partner(self, partner):
         self.partner = partner
+
+    def get_first_name(self):
+        return self.first_name
+
+    def get_last_name(self):
+        return self.last_name
+
+    def get_patronymic(self):
+        return self.patronymic
+
+    def get_place_of_b(self):
+        return self.place_of_b
