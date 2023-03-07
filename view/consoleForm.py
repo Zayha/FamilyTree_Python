@@ -52,7 +52,7 @@ class ConsoleForm:
             "place_of_b"
         ]
 
-        print("Укажите запрашиваемые данные, если их нет, укажите 0")
+        print("Укажите запрашиваемые данные, если их нет, укажите *")
 
         for i in range(len(lst_console)):
             result[lst_key[i]] = input(lst_console[i] + ": ")
